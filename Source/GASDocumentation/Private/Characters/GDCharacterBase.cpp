@@ -27,6 +27,7 @@ AGDCharacterBase::AGDCharacterBase(const class FObjectInitializer& ObjectInitial
 	HitDirectionLeftTag = FGameplayTag::RequestGameplayTag(FName("Effect.HitReact.Left"));
 	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));
 	EffectRemoveOnDeathTag = FGameplayTag::RequestGameplayTag(FName("Effect.RemoveOnDeath"));
+	//JumpMaxCount = 2;
 }
 
 UAbilitySystemComponent * AGDCharacterBase::GetAbilitySystemComponent() const
