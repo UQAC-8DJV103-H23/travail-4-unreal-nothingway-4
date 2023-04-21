@@ -38,7 +38,7 @@ enum class EGDAbilityInputID : uint8
 	Ability2		UMETA(DisplayName = "Ability2"),
 	// 5 Q
 	Ability3		UMETA(DisplayName = "Ability3"),
-	// 6 E
+	// 6 P
 	Ability4		UMETA(DisplayName = "Ability4"),
 	// 7 R
 	Ability5		UMETA(DisplayName = "Ability5"),
@@ -47,5 +47,7 @@ enum class EGDAbilityInputID : uint8
 	// 9 Jump
 	Jump			UMETA(DisplayName = "Jump"),
 	// 10 projectile damage over time
-	Ability6		UMETA(DisplayName = "Ability6")
+	Ability6		UMETA(DisplayName = "Ability6")	,
+	// 11 Immortality spell on E
+	Ability7		UMETA(DisplayName = "Ability7")
 };
