@@ -22,6 +22,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, Meta = (ExposeOnSpawn = true))
 	FGameplayEffectSpecHandle DamageEffectSpecHandle;
 
+	UPROPERTY(BlueprintReadWrite, Meta = (ExposeOnSpawn = true))
+		FGameplayEffectSpecHandle DotEffectSpecHandle;
+
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	class UProjectileMovementComponent* ProjectileMovement;
 
