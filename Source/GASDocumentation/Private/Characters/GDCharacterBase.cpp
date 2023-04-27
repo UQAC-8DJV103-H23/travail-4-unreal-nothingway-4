@@ -27,6 +27,7 @@ AGDCharacterBase::AGDCharacterBase(const class FObjectInitializer& ObjectInitial
 	HitDirectionLeftTag = FGameplayTag::RequestGameplayTag(FName("Effect.HitReact.Left"));
 	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));
 	EffectRemoveOnDeathTag = FGameplayTag::RequestGameplayTag(FName("Effect.RemoveOnDeath"));
+	//JumpMaxCount = 2;
 }
 
 UAbilitySystemComponent * AGDCharacterBase::GetAbilitySystemComponent() const
@@ -283,9 +284,12 @@ void AGDCharacterBase::AddCharacterAbilities()
 	{
 		AbilitySystemComponent->GiveAbility(
 			FGameplayAbilitySpec(StartupAbility, GetAbilityLevel(StartupAbility.GetDefaultObject()->AbilityID), static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), this));
+		// Console Log
+		UE_LOG(LogTemp, Warning, TEXT("Ability ID : %d"), StartupAbility.GetDefaultObject()->AbilityInputID);
 	}
 
 	AbilitySystemComponent->bCharacterAbilitiesGiven = true;
+
 }
 
 void AGDCharacterBase::InitializeAttributes()
