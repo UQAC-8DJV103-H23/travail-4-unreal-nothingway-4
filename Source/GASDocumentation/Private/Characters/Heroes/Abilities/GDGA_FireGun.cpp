@@ -83,6 +83,10 @@ void UGDGA_FireGun::EventReceived(FGameplayTag EventTag, FGameplayEventData Even
 		FRotator Rotation = UKismetMathLibrary::FindLookAtRotation(Start, End);
 
 		FGameplayEffectSpecHandle DamageEffectSpecHandle = MakeOutgoingGameplayEffectSpec(DamageGameplayEffect, GetAbilityLevel());
+		//create the dot spec handle if the projectile is supposed to be a dot
+		FGameplayEffectSpecHandle DotEffectSpecHandle;
+		if(isDot)
+			DotEffectSpecHandle = MakeOutgoingGameplayEffectSpec(DotGameplayEffect, GetAbilityLevel());
 		
 		// Pass the damage to the Damage Execution Calculation through a SetByCaller value on the GameplayEffectSpec
 		DamageEffectSpecHandle.Data.Get()->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(FName("Data.Damage")), Damage);
@@ -98,6 +102,9 @@ void UGDGA_FireGun::EventReceived(FGameplayTag EventTag, FGameplayEventData Even
 			Hero, ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 		Projectile->DamageEffectSpecHandle = DamageEffectSpecHandle;
 		Projectile->Range = Range;
+		//Pass the dot spec handle if the projectile is supposed to be a dot 
+		if (isDot)
+			Projectile->DotEffectSpecHandle = DotEffectSpecHandle;
 		Projectile->FinishSpawning(MuzzleTransform);
 	}
 }
